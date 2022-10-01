@@ -86,6 +86,72 @@ Notice that I had to change directory a few times be at the directory where the 
 Notice that the os.name is Linux on remote and the os.name is Mac OS X on client, the user.name is bec002 on remote and the user.name is ben on client, and the user.home and user.dir are different. This is because the command `getProperty` is being ran different computers. The command `getProperty` would rectrieve information about the system that it is currently running on.
 
 ## Setting an SSH Key
-`ssh` keys is a solution to avoid always having to type passwords repetitively to verify actions. 
+`ssh` keys is a solution to avoid always having to type passwords repetitively to verify actions. ssh utilizes a program called `ssh-keygen`. The program creates a pair of files called the public key and private key. By copying the public key to a particular location on the server, and the private key in a particular location on the client, the ssh command can use the pair of files in place of your password.
+
+It should look something like this: 
+
+```
+# on client (your computer)
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/Users/joe/.ssh/id_rsa): /Users/joe/.ssh/id_rsa
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /Users/joe/.ssh/id_rsa.
+Your public key has been saved in /Users/joe/.ssh/id_rsa.pub.
+The key fingerprint is:
+SHA256:jZaZH6fI8E2I1D35hnvGeBePQ4ELOf2Ge+G0XknoXp0 joe@Joes-Mac-mini.local
+The key's randomart image is:
++---[RSA 3072]----+
+|                 |
+|       . . + .   |
+|      . . B o .  |
+|     . . B * +.. |
+|      o S = *.B. |
+|       = = O.*.*+|
+|        + * *.BE+|
+|           +.+.o |
+|             ..  |
++----[SHA256]-----+
+```
+
+When given the prompt Enter file in which to save the key (/Users/joe/.ssh/id_rsa): press enter again to specify the default path and take note of it. In this case, the default path is /Users/joe/.ssh/id_rsa.
+
+This created two new files on your system; the private key (in a file id_rsa) and the public key (in a file id_rsa.pub), stored in the .ssh directory on your computer.
+
+Now we need to copy the public (not the private) key to the .ssh directory of your user account on the server.
+
+```
+# on client
+$ ssh cs15lfa22zz@ieng6.ucsd.edu
+<Enter Password>
+```
+
+```
+# now on server
+$ mkdir .ssh
+$ <logout>
+``` 
+
+```
+# back on client
+$ scp /Users/joe/.ssh/id_rsa.pub cs15lfa22@ieng6.ucsd.edu:~/.ssh/authorized_keys
+# You use your username and the path you saw in the command above
+```
 
 ## Optimizing Remote Running
+Use what you’ve learned to come up with the most pleasant process you can for making a local edit to WhereAmI.java, then copying it to the remote server and running it.
+
+Some hints:
+
+You can write a command in quotes at the end of an ssh command to directly run it on the remote server, then exit. For example, this command will log in and list the home directory on the remote server:
+
+$ ssh cs15lfa22@ieng6.ucsd.edu "ls"
+You can use semicolons to run multiple commands on the same line in most terminals. For example, try:
+
+$ cp WhereAmI.java OtherMain.java; javac OtherMain.java; java WhereAmI
+You can use the up-arrow on your keyboard to recall the last command that was run
+
+Write down in notes First try using just what we learned in this lab, and document the best process you came up with. Try to get the total time for a run after editing and saving to under 10 total keystrokes/mouse clicks, including all typing. A “keystroke” is pressing one key on your keyboard. For example, pressing the up arrow counts as one keystroke, and typing “java” counts as 4.
+
+If you have more time, brainstorm other ideas or search for other ways you might easily run remote code.
