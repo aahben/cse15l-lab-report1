@@ -146,10 +146,16 @@ $ scp /Users/ben/.ssh/id_rsa.pub bec002@ieng6.ucsd.edu:~/.ssh/authorized_keys
   
 ## Optimizing Remote Running
 
-You can write a command in quotes at the end of an ssh command to directly run it on the remote server, then exit. For example, this command will log in and list the home directory on the remote server:
+`$ ssh bec002@ieng6.ucsd.edu "ls"`
+<img width="458" alt="Screen Shot 2022-09-30 at 6 47 32 PM" src="https://user-images.githubusercontent.com/114449002/193378384-9d442476-3c7b-4f7b-bd10-a3e7c31c6c5a.png">
+  
+Using semicolons, you can run several commands on the same line
 
-$ ssh cs15lfa22@ieng6.ucsd.edu "ls"
-You can use semicolons to run multiple commands on the same line in most terminals. For example, try:
+`$ cp WhereAmI.java OtherMain.java; javac OtherMain.java; java WhereAmI`
 
-$ cp WhereAmI.java OtherMain.java; javac OtherMain.java; java WhereAmI
 You can use the up-arrow on your keyboard to recall the last command that was run
+  
+It will look something like this: 
+<img width="729" alt="Screen Shot 2022-09-30 at 6 47 18 PM" src="https://user-images.githubusercontent.com/114449002/193378395-34965138-dac9-4dde-ad0e-9bfe583685c9.png">
+
+
