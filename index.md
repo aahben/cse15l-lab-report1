@@ -4,6 +4,11 @@ September 29, 2022
 ## Installing VScode 
 First, visit the VScode website https://code.visualstudio.com/ to download and install VScode. According to what operating system you're utilizing (Windows or Mac), download and install the corresponding version. 
 
+<img width="1510" alt="Screen Shot 2022-09-30 at 5 24 46 PM" src="https://user-images.githubusercontent.com/114449002/193377671-ad0cd113-2a73-497f-b173-a38810cc567b.png">
+
+The starting page should look something like this 
+<img width="1025" alt="Screen Shot 2022-09-30 at 6 22 58 PM" src="https://user-images.githubusercontent.com/114449002/193377692-a933028c-1f38-4e6a-a0af-4545c59347c9.png">
+
 ## Remotely Connecting
 Install [OpenSSH](https://learn.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse?tabs=gui) if you are utilizing window. Otherwise, you can skip this step. 
 
