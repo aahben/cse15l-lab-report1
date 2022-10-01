@@ -147,6 +147,7 @@ $ scp /Users/ben/.ssh/id_rsa.pub bec002@ieng6.ucsd.edu:~/.ssh/authorized_keys
 ## Optimizing Remote Running
 
 `$ ssh bec002@ieng6.ucsd.edu "ls"`
+  
 <img width="458" alt="Screen Shot 2022-09-30 at 6 47 32 PM" src="https://user-images.githubusercontent.com/114449002/193378384-9d442476-3c7b-4f7b-bd10-a3e7c31c6c5a.png">
   
 Using semicolons, you can run several commands on the same line
@@ -156,6 +157,7 @@ Using semicolons, you can run several commands on the same line
 You can use the up-arrow on your keyboard to recall the last command that was run
   
 It will look something like this: 
+  
 <img width="729" alt="Screen Shot 2022-09-30 at 6 47 18 PM" src="https://user-images.githubusercontent.com/114449002/193378395-34965138-dac9-4dde-ad0e-9bfe583685c9.png">
 
 
