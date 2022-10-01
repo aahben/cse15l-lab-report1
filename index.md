@@ -143,11 +143,11 @@ $ <logout>
 $ scp /Users/joe/.ssh/id_rsa.pub cs15lfa22@ieng6.ucsd.edu:~/.ssh/authorized_keys
 # You use your username and the path you saw in the command above
 ```
+It should look something like this: 
+<img width="607" alt="Screen Shot 2022-09-29 at 11 46 43 AM" src="https://user-images.githubusercontent.com/114449002/193377796-350264ff-7f17-4309-bc04-311b21954d16.png">
 
+  
 ## Optimizing Remote Running
-Use what you’ve learned to come up with the most pleasant process you can for making a local edit to WhereAmI.java, then copying it to the remote server and running it.
-
-Some hints:
 
 You can write a command in quotes at the end of an ssh command to directly run it on the remote server, then exit. For example, this command will log in and list the home directory on the remote server:
 
@@ -156,7 +156,3 @@ You can use semicolons to run multiple commands on the same line in most termina
 
 $ cp WhereAmI.java OtherMain.java; javac OtherMain.java; java WhereAmI
 You can use the up-arrow on your keyboard to recall the last command that was run
-
-Write down in notes First try using just what we learned in this lab, and document the best process you came up with. Try to get the total time for a run after editing and saving to under 10 total keystrokes/mouse clicks, including all typing. A “keystroke” is pressing one key on your keyboard. For example, pressing the up arrow counts as one keystroke, and typing “java” counts as 4.
-
-If you have more time, brainstorm other ideas or search for other ways you might easily run remote code.
