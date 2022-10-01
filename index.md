@@ -21,9 +21,7 @@ Enter `yes`
 The system would then ask for your password. Login to your course-specific account by entering your password. (Notice the visibility of the password is invisible)
 
 Respond should look something like this: 
-
-Image 
-
+<img width="1279" alt="Screen Shot 2022-09-29 at 10 52 22 AM" src="https://user-images.githubusercontent.com/114449002/193377479-690cbb41-f0f0-47cb-8948-eb43403f78a1.png">
 
 ## Trying Some Commands
 You can then play around by trying to run some commands. Try typing some commands such as 
@@ -37,7 +35,8 @@ You can then play around by trying to run some commands. Try typing some command
 
 Respond should look something like this: 
 
-Image 
+<img width="563" alt="Screen Shot 2022-09-29 at 10 59 55 AM" src="https://user-images.githubusercontent.com/114449002/193377498-e088ab95-e873-4358-b9c3-3a90d9c77577.png">
+
 
 To log out of the remote server type: 
 
@@ -78,7 +77,9 @@ Open a new terminal and log into ieng6 server again. The file should then be in 
 
 It should look something like this: 
 
-Image
+<img width="1020" alt="Screen Shot 2022-09-29 at 11 25 05 AM" src="https://user-images.githubusercontent.com/114449002/193377511-ad279853-d047-433f-bc08-9ad33a5bb06e.png">
+
+<img width="941" alt="Screen Shot 2022-09-29 at 11 34 21 AM" src="https://user-images.githubusercontent.com/114449002/193377529-6e190cb5-a30a-458e-ad46-cc4e96787b0e.png">
 
 Notice that I had to change directory a few times be at the directory where the file “WhereAmI.java” is actually at. The commands `ls` (list) and `cd` (change directory) are helpful to help you locate and move to the directory where you want to be. Then, I was able to compile and run the file successfully. 
 
