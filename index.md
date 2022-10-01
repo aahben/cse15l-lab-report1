@@ -16,6 +16,8 @@ In VScode, open a new terminal (Ctrl or Command + `, or use the Terminal → New
 
 Enter `ssh cs15lfa22zz@ieng6.ucsd.edu` replacing the letters `zz` to your course-specific account's letters. 
 
+(In this lab, I will be using my ucsd email `bec002@ucsd.edu` instead due to password reset failure)
+
 It would respond with 
 `The authenticity of host 'ieng6.ucsd.edu (128.54.70.227)' can't be established.
 RSA key fingerprint is SHA256:ksruYwhnYH+sySHnHAtLUHngrPEyZTDl/1x99wUQcec.
@@ -93,19 +95,20 @@ Notice that the os.name is Linux on remote and the os.name is Mac OS X on client
 ## Setting an SSH Key
 `ssh` keys is a solution to avoid always having to type passwords repetitively to verify actions. ssh utilizes a program called `ssh-keygen`. The program creates a pair of files called the public key and private key. By copying the public key to a particular location on the server, and the private key in a particular location on the client, the ssh command can use the pair of files in place of your password.
 
-It should look something like this: 
+On your client, in the terminal, type `ssh-keygen`. Then the system would prompt `Enter file in which to save the key (/Users/"your_username"/.ssh/id_rsa): /Users/"your_username"/.ssh/id_rsa`. Press enter twice specify the default path which would /Users/"your_username/.ssh/id_rsa. 
 
+It should look something like this: 
 ```
 # on client (your computer)
 $ ssh-keygen
 Generating public/private rsa key pair.
-Enter file in which to save the key (/Users/joe/.ssh/id_rsa): /Users/joe/.ssh/id_rsa
+Enter file in which to save the key (/Users/joe/.ssh/id_rsa): /Users/your_username/.ssh/id_rsa
 Enter passphrase (empty for no passphrase): 
 Enter same passphrase again: 
-Your identification has been saved in /Users/joe/.ssh/id_rsa.
-Your public key has been saved in /Users/joe/.ssh/id_rsa.pub.
+Your identification has been saved in /Users/your_username/.ssh/id_rsa. (this is the private key)
+Your public key has been saved in /Users/your_username/.ssh/id_rsa.pub. (this is the public key)
 The key fingerprint is:
-SHA256:jZaZH6fI8E2I1D35hnvGeBePQ4ELOf2Ge+G0XknoXp0 joe@Joes-Mac-mini.local
+SHA256:jZaZH6fI8E2I1D35hnvGeBePQ4ELOf2Ge+G0XknoXp0 your_username@your_computer_name.local
 The key's randomart image is:
 +---[RSA 3072]----+
 |                 |
@@ -119,16 +122,13 @@ The key's randomart image is:
 |             ..  |
 +----[SHA256]-----+
 ```
+It should look something like this: 
 
-When given the prompt Enter file in which to save the key (/Users/joe/.ssh/id_rsa): press enter again to specify the default path and take note of it. In this case, the default path is /Users/joe/.ssh/id_rsa.
-
-This created two new files on your system; the private key (in a file id_rsa) and the public key (in a file id_rsa.pub), stored in the .ssh directory on your computer.
-
-Now we need to copy the public (not the private) key to the .ssh directory of your user account on the server.
+<img width="607" alt="Screen Shot 2022-09-29 at 11 46 43 AM" src="https://user-images.githubusercontent.com/114449002/193377796-350264ff-7f17-4309-bc04-311b21954d16.png">
 
 ```
 # on client
-$ ssh cs15lfa22zz@ieng6.ucsd.edu
+$ ssh bec002@ieng6.ucsd.edu
 <Enter Password>
 ```
 
@@ -140,12 +140,9 @@ $ <logout>
 
 ```
 # back on client
-$ scp /Users/joe/.ssh/id_rsa.pub cs15lfa22@ieng6.ucsd.edu:~/.ssh/authorized_keys
+$ scp /Users/ben/.ssh/id_rsa.pub bec002@ieng6.ucsd.edu:~/.ssh/authorized_keys
 # You use your username and the path you saw in the command above
 ```
-It should look something like this: 
-<img width="607" alt="Screen Shot 2022-09-29 at 11 46 43 AM" src="https://user-images.githubusercontent.com/114449002/193377796-350264ff-7f17-4309-bc04-311b21954d16.png">
-
   
 ## Optimizing Remote Running
 
